@@ -1,5 +1,4 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -16,7 +15,9 @@ const app = express()
 app.use(morgan('dev'));
 app.use(express.json())
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://faukirijatul.vercel.app',
+}));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
